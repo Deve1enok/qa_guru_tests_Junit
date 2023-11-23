@@ -12,11 +12,10 @@ import static com.codeborne.selenide.Selenide.open;
 public class HabrSearchWebTestComponents {
     private final static SelenideElement searchInputText = $("input.tm-input-text-decorated__input"),
             cardsSearchText = $("a.tm-title__link"),
-            menuGuest = $("[data-test-id=menu-toggle-guest]"),
-            settingsLanguage = $("[class=tm-user-menu__menu-link-text]"),
-            languageSelectEn = $(".tm-fieldset__container"),
-            buttonSaveSettingsMenu = $(".btn"),
-            mainMenuContent = $(".tm-base-layout__header-wrapper"),
+            menuGuest = $(".tm-header-user-menu__toggle"),
+            settingsSelectLanguage = $(".tm-fieldset__container"),
+            buttonSaveSettingsMenu = $(".tm-page-settings-form__submit"),
+            mainMenuContent = $("[class=tm-base-layout__header-wrapper]"),
             sortButtonContent = $("button.tm-navigation-dropdown__button"),
             selectOptionSort = $(".tm-navigation-dropdown__options_absolute").find(byText("по рейтингу"));
 
@@ -44,12 +43,8 @@ public class HabrSearchWebTestComponents {
         menuGuest.click();
         return this;
     }
-    public HabrSearchWebTestComponents settingsLanguageOpen() {
-        settingsLanguage.click();
-        return this;
-    }
-    public HabrSearchWebTestComponents selectLanguage(Language language) {
-        languageSelectEn.find(byText(language.name())).click();
+    public HabrSearchWebTestComponents settingsLanguageOpen(Language language) {
+        settingsSelectLanguage.find(byText(language.name())).click();
         return this;
     }
     public HabrSearchWebTestComponents saveSettingsMenu () {

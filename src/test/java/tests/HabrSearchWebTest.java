@@ -23,7 +23,7 @@ public class HabrSearchWebTest extends BaseTest {
             "QA"
     })
     @ParameterizedTest(name = "Поисковой запрос {0} с выводом карточек > 0")
-    void searchFormShouldHaveCards(String testData) {
+    void searchFormShouldHaveCardsTest(String testData) {
         searchComponents.searchInput()
                 .setValueSearch(testData)
 
@@ -31,7 +31,7 @@ public class HabrSearchWebTest extends BaseTest {
     }
     @CsvFileSource(resources = "/csvSource/dataCardsSearch.csv", delimiter = '|')
     @ParameterizedTest (name = "Поисковой запрос {0} с выводом карточек содержащий текст в нём")
-    void searchFormShouldHaveCardsWithCorrectlyText(String value, String text) {
+    void searchFormShouldHaveCardsWithCorrectlyTextTest(String value, String text) {
         searchComponents.searchInput()
                 .setValueSearch(value)
                 .checkMainButtonsSite()
@@ -40,11 +40,10 @@ public class HabrSearchWebTest extends BaseTest {
     }
     @EnumSource(Language.class)
     @ParameterizedTest(name = "Проверка корректного изменения языка {0} и кнопок на главной странице")
-    void changeLanguageSettingsGuestMainSite(Language language) {
+    void changeLanguageSettingsGuestMainSiteTest(Language language) {
         searchComponents.searchInput()
                 .menuGuestOpen()
-                .settingsLanguageOpen()
-                .selectLanguage(language)
+                .settingsLanguageOpen(language)
                 .saveSettingsMenu()
 
                 .checkMainButtonsSite(language);
