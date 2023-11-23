@@ -1,7 +1,7 @@
 package data;
 
 public enum Language {
-    English("All streams" +
+    ENGLISH("All streams" +
             " Development" +
             " Admin" +
             " Design" +
@@ -11,7 +11,7 @@ public enum Language {
             " Search" +
             " Settings" +
             " Login"),
-    Русский( "Все потоки" +
+    РУССКИЙ( "Все потоки" +
             " Разработка" +
             " Администрирование" +
             " Дизайн" +

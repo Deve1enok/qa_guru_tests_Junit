@@ -44,7 +44,8 @@ public class HabrSearchWebTestComponents {
         return this;
     }
     public HabrSearchWebTestComponents settingsLanguageOpen(Language language) {
-        settingsSelectLanguage.find(byText(language.name())).click();
+        settingsSelectLanguage.find(byText(language.name().substring(0,1).toUpperCase() +
+                language.name().substring(1).toLowerCase())).click();
         return this;
     }
     public HabrSearchWebTestComponents saveSettingsMenu () {
